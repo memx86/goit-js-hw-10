@@ -1,0 +1,10 @@
+<span class='country-info__subtitle'>Capital:</span>
+<span class='country-info__text'>{{#each capital}}{{this}} {{/each}}</span>
+<span class='country-info__subtitle'>Population:</span>
+<span class='country-info__text'>{{population}}</span>
+<span class='country-info__subtitle'>Languages:</span>
+<ul class='country-languages'>
+  {{#each languages}}
+    <li class='country-languages__item'>{{this}}</li>
+  {{/each}}
+</ul>
