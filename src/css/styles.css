@@ -18,17 +18,6 @@ ul {
   list-style: none;
   padding-left: 0;
 }
-.center {
-  min-height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-.wrapper {
-  margin-left: auto;
-  margin-right: auto;
-}
 #search-box {
   font: inherit;
   padding: 8px;

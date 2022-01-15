@@ -33,10 +33,10 @@ function onFetchSuccess(countries) {
     return;
   }
   if (countries.length > 10) {
+    clearCountries();
     Notify.info('Too many matches found. Please enter a more specific name.');
     return;
   }
-
   createCountryList(countries);
 }
 function createCountryInfo(country) {
@@ -44,11 +44,15 @@ function createCountryInfo(country) {
   refs.info.innerHTML = countryMarkup(country);
 }
 function createCountryList(countries) {
+  clearCountries();
   const countriesMarkup = countries.map(countryListMarkup).join('');
   refs.list.innerHTML = countriesMarkup;
 }
 function onError(e) {
   Notify.failure('Oops, there is no country with that name');
-  refs.list.innerHTML = '';
-  refs.info.innerHTML = '';
+  clearCountries();
+}
+function clearCountries() {
+  if (refs.list.innerHTML) refs.list.innerHTML = '';
+  if (refs.info.innerHTML) refs.info.innerHTML = '';
 }
