@@ -1,15 +1,15 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import countryListMarkup from './templates/country-list__item.handlebars';
-import countryMarkup from './templates/country-info.handlebars';
+import countryListMarkup from './templates/country-list__item.hbs';
+import countryMarkup from './templates/country-info.hbs';
 import './css/styles.css';
 
-const debounce = require('lodash.debounce');
-const DEBOUNCE_DELAY = 300;
 const refs = {
   search: document.querySelector('#search-box'),
   list: document.querySelector('.country-list'),
   info: document.querySelector('.country-info'),
 };
+const debounce = require('lodash.debounce');
+const DEBOUNCE_DELAY = 300;
 const onInputDebounced = debounce(onInput, DEBOUNCE_DELAY);
 
 refs.search.addEventListener('input', onInputDebounced);
@@ -17,8 +17,7 @@ refs.search.addEventListener('input', onInputDebounced);
 function onInput(e) {
   const inputValue = e.target.value.trim();
   if (inputValue === '') {
-    refs.list.innerHTML = '';
-    refs.info.innerHTML = '';
+    clearCountries();
     return;
   }
   fetchCountryByName(inputValue).then(onFetchSuccess).catch(onError);
