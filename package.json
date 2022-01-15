@@ -1,16 +1,16 @@
 {
-  "name": "parcel-goit-template",
+  "name": "goit-js-hw-10",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://memx86.github.io/goit-js-hw-00",
+  "homepage": "https://memx86.github.io/goit-js-hw-10",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-00/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/memx86/goit-js-hw-00.git"
+    "url": "git+https://github.com/memx86/goit-js-hw-10.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",

@@ -1,3 +1,3 @@
-#goit-js-hw-00
+#goit-js-hw-10
 
-JS homework 00 https://memx86.github.io/goit-js-hw-00/
+JS homework 10 https://memx86.github.io/goit-js-hw-10/
