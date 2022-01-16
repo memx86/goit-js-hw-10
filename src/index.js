@@ -20,13 +20,18 @@ function onInput(e) {
     clearCountries();
     return;
   }
-  fetchCountryByName(inputValue).then(onFetchSuccess).catch(onError);
+  getCountryByName(inputValue).then(onSuccess).catch(onError);
 }
-function fetchCountryByName(country) {
+function getCountryByName(country) {
   const url = `https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags,languages`;
-  return fetch(url).then(r => r.json());
+  return fetch(url).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
 }
-function onFetchSuccess(countries) {
+function onSuccess(countries) {
   if (countries.length === 1) {
     createCountryInfo(countries[0]);
     return;
@@ -47,7 +52,7 @@ function createCountryList(countries) {
   const countriesMarkup = countries.map(countryListMarkup).join('');
   refs.list.innerHTML = countriesMarkup;
 }
-function onError(e) {
+function onError() {
   Notify.failure('Oops, there is no country with that name');
   clearCountries();
 }
