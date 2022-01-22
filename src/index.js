@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import debounce from 'lodash.debounce';
 import countryListMarkup from './templates/country-list__item.hbs';
 import countryMarkup from './templates/country-info.hbs';
 import './css/styles.css';
@@ -8,7 +9,6 @@ const refs = {
   list: document.querySelector('.country-list'),
   info: document.querySelector('.country-info'),
 };
-const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 const onInputDebounced = debounce(onInput, DEBOUNCE_DELAY);
 
