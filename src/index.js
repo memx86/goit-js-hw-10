@@ -2,6 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import debounce from 'lodash.debounce';
 import countryListMarkup from './templates/country-list__item.hbs';
 import countryMarkup from './templates/country-info.hbs';
+import getCountryByName from './js/fetchCountries';
 import './css/styles.css';
 
 const refs = {
@@ -21,16 +22,6 @@ function onInput(e) {
     return;
   }
   getCountryByName(inputValue).then(onSuccess).catch(onError);
-}
-function getCountryByName(country) {
-  const url = `https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags,languages`;
-  return fetch(url).then(handleResponse);
-}
-function handleResponse(response) {
-  if (response.ok) {
-    return response.json();
-  }
-  throw new Error(response.statusText);
 }
 function onSuccess(countries) {
   if (countries.length === 1) {
