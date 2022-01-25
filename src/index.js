@@ -52,12 +52,6 @@ function createCountriesListMarkup(array) {
   return array.map(createCountryListItemMarkup).join('');
 }
 function updateCountriesUI(listMarkup = '', infoMarkup = '') {
-  updateCountryListUI(listMarkup);
-  updateCountryInfoUI(infoMarkup);
-}
-function updateCountryListUI(markup) {
-  refs.list.innerHTML = markup;
-}
-function updateCountryInfoUI(markup) {
-  refs.info.innerHTML = markup;
+  refs.list.innerHTML = listMarkup;
+  refs.info.innerHTML = infoMarkup;
 }
